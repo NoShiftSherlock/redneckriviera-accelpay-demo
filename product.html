@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Redneck Riviera Whiskey</title>
+<meta name="description" content="Private sales demo product page.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Yantramanav:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261024a">
+</head>
+<body data-page="product">
+<div id="site-header"></div>
+<div class="crumbs"><a href="index.html">Home</a> &nbsp;&gt;&nbsp; <a href="index.html#shop">Shop</a> &nbsp;&gt;&nbsp; <b id="crumb-name"></b></div>
+<section class="pdp">
+  <div class="in">
+    <div>
+      <h1 id="pdp-name"></h1>
+      <div class="sub1" id="pdp-sub"></div>
+      <div class="specs"><div class="d" id="pdp-desc"></div><div class="age" id="pdp-badge"></div></div>
+      <dl class="facts" id="pdp-facts"></dl>
+      <!-- AccelPay cart: product form and delivery by ZIP, replacing the previous buy button. -->
+      <div id="product-form" class="product-form" data-sku="american-blended"></div>
+    </div>
+    <div class="visual" id="pdp-visual"></div>
+  </div>
+</section>
+<section class="notes" id="pdp-notes-wrap"><div class="tri" id="pdp-notes"></div></section>
+<div id="site-footer"></div>
+<script src="partials.js?v=20261024a"></script>
+<script src="brand.js?v=20261024a"></script>
+<script src="catalog.js?v=20261024a"></script>
+<script src="data.js?v=20261024a"></script>
+<script>
+(function () {
+  var C = window.CATALOG;
+  var sku = new URLSearchParams(location.search).get('sku') || 'american-blended';
+  if (!C[sku]) sku = 'american-blended';
+  var p = C[sku];
+  document.getElementById('product-form').setAttribute('data-sku', sku);
+  document.title = p.name + ' | Redneck Riviera Whiskey';
+  document.getElementById('crumb-name').textContent = p.name;
+  document.getElementById('pdp-name').textContent = p.name;
+  document.getElementById('pdp-sub').textContent = p.sub || p.size;
+  document.getElementById('pdp-desc').textContent = p.long || p.desc;
+  document.getElementById('pdp-badge').innerHTML = p.badge ? '<b>' + p.badge[0] + '</b><span>' + p.badge[1] + '</span>' : '';
+  document.getElementById('pdp-facts').innerHTML = (p.facts || []).map(function (f) { return '<dt>' + f[0] + '</dt><dd>' + f[1] + '</dd>'; }).join('');
+  document.getElementById('pdp-visual').innerHTML = '<div class="bottle"><img src="' + (p.hero || p.img) + '" alt="' + p.name + '"></div>';
+  var notes = p.notes || [];
+  if (notes.length) document.getElementById('pdp-notes').innerHTML = notes.map(function (n) { return '<div><h5>' + n[0] + '</h5><p>' + n[1] + '</p></div>'; }).join('');
+  else document.getElementById('pdp-notes-wrap').remove();
+})();
+</script>
+<script src="app.js?v=20261024a"></script>
+</body>
+</html>

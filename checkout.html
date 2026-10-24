@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout | Redneck Riviera Whiskey</title>
+<meta name="description" content="Private sales demo checkout.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Yantramanav:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261024a">
+</head>
+<body data-page="checkout" data-no-gate class="shop-co">
+<div id="site-header"></div>
+<header class="sc-head"><div class="in"><a class="brand" href="index.html" aria-label="Redneck Riviera Whiskey home"><img class="logo" src="assets/logo.svg" alt="Redneck Riviera" style="height:34px"></a>
+  <span class="sc-back">&#128274; Secure checkout by AccelPay · <a href="index.html">Back to store</a></span></div></header>
+
+<div id="confirmed" hidden>
+  <div class="sc-thanks">
+    <div class="tick">&#10003;</div>
+    <p class="muted" id="t-num"></p>
+    <h1 id="t-name">Thank you!</h1>
+    <div class="sc-card"><h3>Your order is confirmed</h3><p id="t-what"></p></div>
+    <div class="sc-card"><h3>Order updates</h3><p>You will get shipping updates by email and text. Your order and customer record stay with Redneck Riviera.</p></div>
+    <p class="muted" style="font-size:.84rem">This is a sales demo. No order was placed and no card was charged.</p>
+    <a class="btn" href="index.html">Continue shopping</a>
+  </div>
+</div>
+
+<div class="checkout" id="checkout-view">
+  <div class="co-left"><div class="inner">
+    <form id="co-form" autocomplete="on">
+      <div class="sc-sec"><div class="sc-h"><h2>Contact</h2></div>
+        <input class="co-field" type="email" name="email" placeholder="Email" required autocomplete="email">
+        <label class="sc-chk"><input type="checkbox" checked> Email me with news and offers</label>
+      </div>
+      <div class="sc-sec"><div class="sc-h"><h2>Delivery</h2></div>
+        <div class="co-field sc-select"><span>Country/Region</span>United States</div>
+        <div class="co-row"><input class="co-field" name="firstName" placeholder="First name" required autocomplete="given-name"><input class="co-field" name="lastName" placeholder="Last name" required autocomplete="family-name"></div>
+        <input class="co-field" name="address1" placeholder="Address" required autocomplete="address-line1">
+        <input class="co-field" name="address2" placeholder="Apartment, suite, etc. (optional)" autocomplete="address-line2">
+        <div class="co-row3"><input class="co-field" name="city" placeholder="City" required autocomplete="address-level2"><input class="co-field" id="co-state" placeholder="State" readonly><input class="co-field" id="co-zip" name="zip" placeholder="ZIP code" inputmode="numeric" maxlength="5" required autocomplete="postal-code"></div>
+        <input class="co-field" name="phone" placeholder="Phone (for delivery updates)" autocomplete="tel">
+        <input class="co-field" name="dob" type="text" placeholder="Date of birth (MM/DD/YYYY)">
+      </div>
+      <div class="sc-sec"><div class="sc-h"><h2>Shipping method</h2><span class="ap-callout">Retailer routing by AccelPay</span></div>
+        <div id="methods"></div>
+        <p class="sc-note">Alcohol is sold and delivered by a licensed retailer that can legally sell to your address. AccelPay picks that retailer by ZIP code. An adult 21+ must show ID on delivery.</p>
+      </div>
+      <div class="sc-sec"><div class="sc-h"><h2>Payment</h2><span class="ap-callout">Payments and taxes by AccelPay</span></div>
+        <p class="sc-sub">All transactions are secure and encrypted.</p>
+        <div class="sc-pay">
+          <div class="sc-pay-h"><span class="radio on"></span><strong>Credit card</strong><span class="cards"><i>VISA</i><i>MC</i><i>AMEX</i><i>DISC</i></span></div>
+          <div class="sc-pay-b">
+            <input class="co-field" placeholder="Card number" value="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4242" readonly>
+            <div class="co-row"><input class="co-field" placeholder="Expiration date (MM / YY)" value="12 / 30" readonly><input class="co-field" placeholder="Security code" value="&bull;&bull;&bull;" readonly></div>
+            <input class="co-field" placeholder="Name on card">
+            <label class="sc-chk"><input type="checkbox" checked> Use shipping address as billing address</label>
+          </div>
+        </div>
+        <div class="ap-strip"><span class="ap-dot"></span><span><b>Payments, taxes and retailer routing by AccelPay</b>, in a white-label checkout on redneckriviera.com. Redneck Riviera owns the customer data.</span></div>
+      </div>
+      <button class="btn block sc-paybtn" id="pay" type="submit">Pay now</button>
+      <p class="sc-legal">By placing your order you confirm you are 21 or older. Each item is sold by the licensed retailer shown above.</p>
+      <div class="sc-foot"><a href="#">Refund policy</a><a href="#">Shipping policy</a><a href="#">Privacy policy</a><a href="#">Terms of service</a></div>
+    </form>
+  </div></div>
+  <div class="co-right"><div class="inner">
+    <div id="os"></div>
+    <div class="os-line" style="margin-top:1rem"><span class="muted">Subtotal</span><span id="os-sub"></span></div>
+    <div class="os-line"><span class="muted">Shipping</span><span id="os-ship"></span></div>
+    <div class="os-line"><span class="muted">Estimated taxes <em class="ap-mini">by AccelPay</em></span><span id="os-tax"></span></div>
+    <div class="os-line total"><span>Total</span><span><small>USD</small> <span id="os-total"></span></span></div>
+    <div class="os-from" id="os-from"></div>
+    <div class="co-why"><b>Checkout on redneckriviera.com</b><span>The AccelPay white-label checkout runs on your own domain. Redneck Riviera owns the customer data; AccelPay handles payment, tax and the licensed retailer.</span></div>
+  </div></div>
+</div>
+<div id="site-footer"></div>
+<script src="partials.js?v=20261024a"></script>
+<script src="brand.js?v=20261024a"></script>
+<script src="catalog.js?v=20261024a"></script>
+<script src="data.js?v=20261024a"></script>
+<script>
+(function () { ['.topbar', '.promo-bar', 'header.site', 'footer.site'].forEach(function (s) { var e = document.querySelector(s); if (e) e.remove(); }); })();
+</script>
+<script src="app.js?v=20261024a"></script>
+<script>
+(function () {
+  if (!new URLSearchParams(location.search).get('confirmed')) return;
+  var o = null; try { o = JSON.parse(sessionStorage.getItem(window.BRAND.key + '-order')); } catch (e) {}
+  document.getElementById('checkout-view').hidden = true;
+  document.getElementById('confirmed').hidden = false;
+  if (o) {
+    document.getElementById('t-num').textContent = 'Confirmation ' + o.num + ' · $' + (o.total / 100).toFixed(2);
+    document.getElementById('t-name').textContent = 'Thank you, ' + o.name + '!';
+    document.getElementById('t-what').textContent = o.m.real
+      ? o.m.name + ' (' + o.m.city + ', ' + o.m.st + '), a licensed retailer, will ship your order in 2 to 4 business days.'
+      : 'A licensed ' + o.m.stName + ' retailer from the AccelPay network will ship your order in 3 to 5 business days.';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Redneck Riviera Whiskey | Shop</title>
+<meta name="description" content="Private sales demo: redneckriviera.com with the AccelPay white-label cart and checkout.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Yantramanav:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261024a">
+</head>
+<body data-page="home">
+<div id="site-header"></div>
+<section class="hero" style="background-image:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.15)),url('assets/promo3.jpg');background-position:center 60%">
+  <div class="in"><div class="copy">
+    <span class="kicker">Granny Rich approved</span>
+    <h1 class="h-caps">Redneck Riviera Whiskey</h1>
+    <p>John Rich's American blended whiskey. Smooth as it gets, for America's work hard, play hard crowd.</p>
+    <a class="btn" href="#shop">Buy direct online</a>
+  </div></div>
+</section>
+<section class="intro">
+  <span class="kicker">#DrinkAmerican</span>
+  <h2 class="h-caps">Buy direct online</h2>
+  <p>Hundreds of samples later, Redneck Riviera American Blended Whiskey was born. Order it here and a licensed retailer in your state ships it to your door.</p>
+</section>
+
+<section class="shop" id="shop"><h3 class="sec" id="grid-whiskey-h">Whiskey</h3><div class="grid" id="grid-whiskey"></div><h3 class="sec" id="grid-gifts-h">Gifts and bundles</h3><div class="grid" id="grid-gifts"></div></section>
+
+<section class="dband" id="tonight">
+  <div class="in">
+    <div>
+      <span class="kicker">Delivery near you</span>
+      <h2>Redneck Riviera, shipped from a licensed retailer in your state</h2>
+      <p>Enter your ZIP. AccelPay finds the licensed retailers that can sell to your address and routes your order to one of them. Where Gopuff stocks Redneck Riviera, instant delivery in about 30 minutes shows up here too.</p>
+      <div class="partners">
+        <span class="chip"><img src="assets/gopuff-icon.png" alt="">Gopuff</span>
+        <span class="chip"><img src="assets/doordash-icon.svg" alt="">DoorDash from local retailers</span>
+      </div>
+      <div class="zipform"><input inputmode="numeric" maxlength="5" placeholder="Your ZIP code" aria-label="ZIP code"><button class="btn" data-zip-set>Check</button></div>
+      <div class="quick">Try: <button data-zip-quick="92126">San Diego</button><button data-zip-quick="91901">Alpine CA</button><button data-zip-quick="37203">Nashville</button><button data-zip-quick="78701">Austin</button><button data-zip-quick="10003">New York</button></div>
+    </div>
+    <div>
+      <div id="band-result"></div>
+      <ol class="how">
+        <li><span class="n">1</span><div><strong>Enter your address</strong><span>We check every licensed retailer in the network that can reach you.</span></div></li>
+        <li><span class="n">2</span><div><strong>Pick your delivery</strong><span>Ship it from an in-state licensed retailer, or instant delivery where it is available.</span></div></li>
+        <li><span class="n">3</span><div><strong>Check out right here</strong><span>The same checkout as the rest of redneckriviera.com. A licensed retailer fills the order and checks ID on delivery.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="banner" id="story" style="background-image:url('assets/photo-whiskey.jpg')">
+  <div class="in"><span class="kicker">You've worked hard, now it's time to play hard</span><h2 class="h-caps">A taste of the good life in every sip</h2></div>
+</section>
+<section class="how-sec" id="how"><div class="in"><span class="kicker">For the Redneck Riviera team</span><div id="how-section"></div></div></section>
+<div id="site-footer"></div>
+<script src="partials.js?v=20261024a"></script>
+<script src="brand.js?v=20261024a"></script>
+<script src="catalog.js?v=20261024a"></script>
+<script src="data.js?v=20261024a"></script>
+<script>
+(function () {
+  var C = window.CATALOG;
+  function card(sku) { var p = C[sku];
+    return '<a class="card" data-card-sku="' + sku + '" href="product.html?sku=' + sku + '">' +
+      '<div class="shot' + (p.contain ? ' contain' : '') + '"><span class="tag" hidden>In stock nearby</span><img src="' + p.img + '" alt="' + p.name + '">' + (p.rollover ? '<img class="ro" src="' + p.rollover + '" alt="">' : '') + '</div>' +
+      '<div class="body"><h4>' + p.name + '</h4><span class="sz">' + p.size + '</span><span class="price"></span>' +
+      '<p class="desc">' + p.desc + '</p>' +
+      '<div class="acts"><button class="btn" data-add-sku="' + sku + '">' + (p.soon ? 'Coming soon' : 'Add to cart') + '</button><span class="btn ghost">Details</span></div></div></a>'; }
+  document.getElementById('grid-whiskey').innerHTML = ["american-blended", "honey-apple", "granny-rich"].map(card).join('');
+  document.getElementById('grid-gifts').innerHTML = ["signed-bottle", "good-times-kit", "patriotic-pack"].map(card).join('');
+})();
+</script>
+<script src="app.js?v=20261024a"></script>
+</body>
+</html>
